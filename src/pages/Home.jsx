@@ -18,7 +18,7 @@ const Home = () => {
       <Services />
       <Portfolio />
       <Stats />
-      
+      <TechStack />
       <Testimonials />
       <Team />
       <Pricing />
