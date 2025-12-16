@@ -26,6 +26,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import ParticleBackground from '../components/ui/ParticleBackground';
+import Footer from '../components/layout/Footer';
 
 const ServiceDetailsPage = () => {
   const { slug } = useParams();
@@ -571,6 +572,7 @@ const ServiceDetailsPage = () => {
 
       {/* CTA Section */}
       <CTA />
+        <Footer />
     </>
   );
 };
