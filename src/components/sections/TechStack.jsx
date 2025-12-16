@@ -21,7 +21,7 @@ const technologies = [
 ];
 
 const TechStack = () => {
-  // ලිස්ට් එක දෙපාරක් ඩුප්ලිකේට් කරනවා හිඩැස් නැතුව දිගටම යවන්න
+
   const duplicatedTech = [...technologies, ...technologies];
 
   return (

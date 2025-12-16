@@ -33,7 +33,7 @@ const services = [
   },
   {
     icon: Cloud,
-    title: 'Cloud Solutions',
+    title: 'Cloud Solutions ',
     description: 'Scalable cloud infrastructure and DevOps services for modern applications.',
     color: 'from-green-500 to-teal-500',
     features: ['AWS & Azure', 'Kubernetes', 'CI/CD'],

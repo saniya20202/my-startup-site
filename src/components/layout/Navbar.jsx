@@ -7,23 +7,27 @@ import ThemeToggle from '../ui/ThemeToggle';
 import Button from '../ui/Button';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 
+
+// Step 1: Services Data file එක මෙතනට import කරගන්න (Path එක හරිද බලන්න)
+import { servicesData } from '../../data/servicesData'; 
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const { scrollPosition, scrollDirection } = useScrollPosition();
   const location = useLocation();
 
+  // Step 2: navItems array එක හදනකොට servicesData එක map කරන්න
   const navItems = [
     { name: 'Home', path: '/' },
     { 
       name: 'Services', 
       path: '/services',
-      dropdown: [
-        { name: 'Web Development', path: '/services/web' },
-        { name: 'Mobile Apps', path: '/services/mobile' },
-        { name: 'UI/UX Design', path: '/services/design' },
-        { name: 'Cloud Solutions', path: '/services/cloud' },
-      ]
+      // මෙතන servicesData එකෙන් කෙලින්ම links ටික ගන්නවා
+      dropdown: servicesData.map(service => ({
+        name: service.title,
+        path: `/services/${service.slug}` // මේක නිසා path එක වරදින්නේ නෑ
+      }))
     },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'About', path: '/about' },
@@ -105,13 +109,13 @@ const Navbar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-56 py-2 bg-white dark:bg-dark-900 rounded-xl shadow-xl border border-dark-100 dark:border-dark-800"
+                      className="absolute top-full left-0 mt-2 w-64 py-2 bg-white dark:bg-dark-900 rounded-xl shadow-xl border border-dark-100 dark:border-dark-800"
                     >
                       {item.dropdown.map((subItem) => (
                         <Link
-                          key={subItem.name}
+                          key={subItem.path} // path එක unique key එකක් විදියට පාවිච්චි කරන්න
                           to={subItem.path}
-                          className="block px-4 py-2 text-dark-600 dark:text-dark-300 hover:text-primary-500 hover:bg-dark-50 dark:hover:bg-dark-800 transition-colors"
+                          className="block px-4 py-3 text-sm font-medium text-dark-600 dark:text-dark-300 hover:text-primary-500 hover:bg-dark-50 dark:hover:bg-dark-800 transition-colors"
                         >
                           {subItem.name}
                         </Link>
@@ -174,29 +178,50 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white dark:bg-dark-950 border-t border-dark-100 dark:border-dark-800"
+            className="lg:hidden bg-white dark:bg-dark-950 border-t border-dark-100 dark:border-dark-800 overflow-hidden"
           >
             <div className="container-custom py-6 space-y-4">
               {navItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    to={item.path}
-                    className={`
-                      block py-2 text-lg font-medium
-                      ${location.pathname === item.path 
-                        ? 'text-primary-500' 
-                        : 'text-dark-600 dark:text-dark-300'
-                      }
-                    `}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
+                <div key={item.name}>
+                   {/* Mobile View එකේ Dropdown නැතුව කෙලින්ම Link පෙන්නනවා හෝ Submenu පෙන්නනවා */}
+                   {item.dropdown ? (
+                      <div className="space-y-2">
+                         <div className="text-lg font-medium text-dark-900 dark:text-white mb-2">{item.name}</div>
+                         <div className="pl-4 space-y-2 border-l-2 border-dark-100 dark:border-dark-800 ml-2">
+                            {item.dropdown.map((subItem) => (
+                               <Link
+                                  key={subItem.path}
+                                  to={subItem.path}
+                                  onClick={() => setIsOpen(false)}
+                                  className="block py-1 text-dark-600 dark:text-dark-300 hover:text-primary-500"
+                               >
+                                  {subItem.name}
+                               </Link>
+                            ))}
+                         </div>
+                      </div>
+                   ) : (
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Link
+                        to={item.path}
+                        onClick={() => setIsOpen(false)}
+                        className={`
+                          block py-2 text-lg font-medium
+                          ${location.pathname === item.path 
+                            ? 'text-primary-500' 
+                            : 'text-dark-600 dark:text-dark-300'
+                          }
+                        `}
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.div>
+                   )}
+                </div>
               ))}
               <motion.div
                 initial={{ opacity: 0 }}
