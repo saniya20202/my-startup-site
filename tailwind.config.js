@@ -9,6 +9,7 @@ export default {
     extend: {
       colors: {
         // මෙන්න මේ border line එක add කරන්න
+        // මෙන්න මේ border line එක add කරන්න
         border: '#1e293b', 
         
         primary: {
