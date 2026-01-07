@@ -8,16 +8,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Border ekata dan clean dark blue-grey ekak damma (Professional look)
-        border: '#E2E8F0', 
+        // Border eka dan Pure Grey (Nil gathiya ain kara)
+        border: '#E4E4E7', 
         
+        // PRIMARY: Emerald Green (Keep as is - Meka oyaage Main Green eka)
         primary: {
           50:  '#ecfdf5',
           100: '#d1fae5',
           200: '#a7f3d0',
           300: '#6ee7b7',
           400: '#34d399',
-          500: '#10B981', // EMERALD GREEN (Professional Main)
+          500: '#10B981', // Main Green
           600: '#059669',
           700: '#047857',
           800: '#065f46',
@@ -25,37 +26,41 @@ export default {
           950: '#022c22',
         },
 
+        // SECONDARY: Teal (Less Blue, More Greenish) 🌊
+        // Kalin thibba Blue eka wenuwata meka damma. Meka "Kola" patata godak match wenawa.
         secondary: {
-          50:  '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6', // BLUE ACCENT (Professionalism pennanna yellow wenuwata blue damma)
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
+          50:  '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6', // TEAL (Meka nil nemei, kola-nil mix ekak)
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+          950: '#042f2e',
         },
 
+        // DARK SCALE: Zinc/Charcoal (No Blue Tint) 🌑
+        // Meka thama Backgrounds saha Text walata enne. 
+        // Kalin thibba "Slate" (Nil gathiya) ain karala "Zinc" (Pure Grey) damma.
         dark: {
-          50:  '#F8FAFC', // BACKGROUND COLOR
-          100: '#F1F5F9',
-          200: '#E2E8F0',
-          300: '#CBD5E1',
-          400: '#94A3B8',
-          500: '#64748B',
-          600: '#475569',
-          700: '#334155',
-          800: '#1E293B', 
-          900: '#0F172A', // DARK TEXT / HEADINGS (Oya illapu Dark Blue/Grey eka)
-          950: '#020617',
+          50:  '#FAFAFA', // Background (Clean White)
+          100: '#F4F4F5',
+          200: '#E4E4E7', // Borders
+          300: '#D4D4D8',
+          400: '#A1A1AA',
+          500: '#71717A',
+          600: '#52525B',
+          700: '#3F3F46', // Charcoal Grey
+          800: '#27272A', // Dark Sections
+          900: '#18181B', // MAIN TEXT (Neutral Black/Charcoal - No Blue)
+          950: '#09090B', // Deepest Black
         },
       },
 
       boxShadow: {
-        // Shadow ekath emerald green walata update kala
         'green-glow': '0 0 30px rgba(16, 185, 129, 0.45)',
         'green-soft': '0 0 15px rgba(16, 185, 129, 0.25)',
       },
