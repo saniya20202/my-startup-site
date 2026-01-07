@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        border: '#0f3d2e', // logo-matched dark green border
+        // Border ekata dan clean dark blue-grey ekak damma (Professional look)
+        border: '#E2E8F0', 
         
         primary: {
           50:  '#ecfdf5',
@@ -16,46 +17,47 @@ export default {
           200: '#a7f3d0',
           300: '#6ee7b7',
           400: '#34d399',
-          500: '#22c55e', // MAIN BRAND GREEN
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#052e16',
-          950: '#021b0d',
+          500: '#10B981', // EMERALD GREEN (Professional Main)
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
+          950: '#022c22',
         },
 
         secondary: {
-          50:  '#fefce8',
-          100: '#fef9c3',
-          200: '#fef08a',
-          300: '#fde047',
-          400: '#facc15',
-          500: '#eab308', // ACCENT YELLOW (CTA / highlight)
-          600: '#ca8a04',
-          700: '#a16207',
-          800: '#854d0e',
-          900: '#713f12',
-          950: '#422006',
+          50:  '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6', // BLUE ACCENT (Professionalism pennanna yellow wenuwata blue damma)
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+          950: '#172554',
         },
 
         dark: {
-          50:  '#e5e7eb',
-          100: '#d1d5db',
-          200: '#9ca3af',
-          300: '#6b7280',
-          400: '#4b5563',
-          500: '#374151',
-          600: '#1f2933',
-          700: '#111827',
-          800: '#0b1411', // LOGO BACKGROUND MATCH
-          900: '#050807',
-          950: '#020403',
+          50:  '#F8FAFC', // BACKGROUND COLOR
+          100: '#F1F5F9',
+          200: '#E2E8F0',
+          300: '#CBD5E1',
+          400: '#94A3B8',
+          500: '#64748B',
+          600: '#475569',
+          700: '#334155',
+          800: '#1E293B', 
+          900: '#0F172A', // DARK TEXT / HEADINGS (Oya illapu Dark Blue/Grey eka)
+          950: '#020617',
         },
       },
 
       boxShadow: {
-        'green-glow': '0 0 30px rgba(34,197,94,0.45)',
-        'green-soft': '0 0 15px rgba(34,197,94,0.25)',
+        // Shadow ekath emerald green walata update kala
+        'green-glow': '0 0 30px rgba(16, 185, 129, 0.45)',
+        'green-soft': '0 0 15px rgba(16, 185, 129, 0.25)',
       },
 
       fontFamily: {
